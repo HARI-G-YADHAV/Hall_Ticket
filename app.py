@@ -16,13 +16,14 @@ def download():
     if request.method == 'POST':
         file = request.files['csv_file']
         choice = request.form['choice']
+        url = request.form['url']
 
         if file.filename == '' or not file.filename.endswith('.csv'):
             return "Please upload a valid CSV file."
 
         try:
             file_content = file.read()  # Read the file content as bytes
-            process_csv_file(file_content, choice)  # Pass the file content to the function
+            process_csv_file(file_content, choice, url)  # Pass the file content to the function
             return "Hall tickets downloaded successfully!"
         except Exception as e:
             return f"An error occurred: {str(e)}"
@@ -30,7 +31,7 @@ def download():
     return redirect(url_for('home'))  # Redirect to the home page if accessed via GET
 
 
-def process_csv_file(file_content, choice):
+def process_csv_file(file_content, choice, url):
     if choice == "1":
         data_field = "aadar"
     elif choice == "2":
@@ -44,11 +45,11 @@ def process_csv_file(file_content, choice):
     for row in reader:
         roll_number = row['Register No']
         data = row[data_field]
-        download_hall_ticket(roll_number, data)
+        download_hall_ticket(roll_number, data, url)
 
-def download_hall_ticket(roll_number, date_of_birth):
-    url = 'http://www.exam.kannuruniversity.ac.in/IntegratedPG/HALL_TICKET/intpg4semreg_april_2023/hallticket.php'
-    
+def download_hall_ticket(roll_number, date_of_birth, url):
+
+    url = url + 'hallticket.php'
     if len(date_of_birth)==12:
         payload = {
             'regno': roll_number,
@@ -73,5 +74,5 @@ def download_hall_ticket(roll_number, date_of_birth):
         print(f"Failed to access hall ticket website for Roll Number {roll_number}.")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host="0.0.0.0")
 
