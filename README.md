@@ -6,14 +6,13 @@ Flask webapp which downloads marklist of student by provided .csv file and URL
 
 ## Authors
 
-- [@H4K3R13](https://www.github.com/H4K3R13)
+- [@HARI-G-YADHAV](https://www.github.com/HARI-G-YADHAV)
 
-- [@sharathplkn](https://github.com/sharathplkn)
 
 
 ## Screenshots
 
-![App Screenshot](./screenshot.png)
+![App Screenshot](./Screenshot.png)
 
 
 ## Tech Stack
