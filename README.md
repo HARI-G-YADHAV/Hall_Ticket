@@ -1,7 +1,7 @@
 
-# Marklist Downloader 
+# HallTicket Downloader 
 
-Flask webapp which downloads marklist of student by provided .csv file and URL
+Flask webapp which downloads Hallticket of student by provided .csv file and URL
 
 
 ## Authors
