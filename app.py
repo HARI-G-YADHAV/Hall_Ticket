@@ -74,5 +74,5 @@ def download_hall_ticket(roll_number, date_of_birth, url):
         print(f"Failed to access hall ticket website for Roll Number {roll_number}.")
 
 if __name__ == '__main__':
-    app.run(debug=True,host="0.0.0.0")
+    app.run(debug=True)
 
