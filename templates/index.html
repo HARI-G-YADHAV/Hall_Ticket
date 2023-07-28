@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hall Ticket Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <h1>Hall Ticket Downloader</h1>
+    <form action="/download" method="post" enctype="multipart/form-data">
+        <label for="csv_file">Select CSV File:</label>
+        <input type="file" id="csv_file" name="csv_file" accept=".csv" required>
+        <br>
+        <label for="choice">Choose Data Type:</label>
+        <select id="choice" name="choice" required>
+            <option value="1">Aadhaar Number</option>
+            <option value="2">Date of Birth</option>
+        </select>
+        <br>
+        <input type="submit" value="Download Hall Tickets">
+    </form>
+</body>
+</html>
