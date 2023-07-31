@@ -39,7 +39,7 @@ Go to the project directory
 Install Required Packages 
 
 ```bash
-  pip3 install -r requirement.txt
+  pip3 install -r requirements.txt
 ```
 
 Start the server in debug mode
