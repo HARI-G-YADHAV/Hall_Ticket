@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
 import io
 import csv
-import requests 
+import os
+import requests
 # Import the functions from your original script
 
 
@@ -65,7 +66,10 @@ def download_hall_ticket(roll_number, date_of_birth, url):
     if response.status_code == 200:
         # Check if the hall ticket is available in the response content
         if roll_number in response.text:
-            with open(f'hall_ticket_{roll_number}.html', 'w') as f:
+            if not os.path.exists("hallticket"):
+                os.makedirs("hallticket")
+            file_path = os.path.join("hallticket", f'hall_ticket_{roll_number}.html')
+            with open(file_path, 'w') as f:
                 f.write(response.text)
             print(f"Hall ticket for Roll Number {roll_number} downloaded successfully.")
         else:
