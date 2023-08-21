@@ -41,13 +41,14 @@ Install Required Packages
 ```bash
   pip3 install -r requirement.txt
   sudo apt-get update
-  sudo apt install libreoffice
+  sudo apt-get install pdftk
+  sudo apt install wkhtmltopdf
 ```
 
 Start the server in debug mode
 
 ```bash
-  pip3 app.py
+  python3 app.py
 
 ```
 
