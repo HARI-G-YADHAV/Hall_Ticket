@@ -3,10 +3,12 @@ import io
 import csv
 import os
 import requests
+import subprocess
 # Import the functions from your original script
 
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def home():
@@ -47,6 +49,7 @@ def process_csv_file(file_content, choice, url):
         roll_number = row['Register No']
         data = row[data_field]
         download_hall_ticket(roll_number, data, url)
+    shell()
 
 def download_hall_ticket(roll_number, date_of_birth, url):
 
@@ -76,6 +79,14 @@ def download_hall_ticket(roll_number, date_of_birth, url):
             print(f"Hall ticket not found for Roll Number {roll_number}.")
     else:
         print(f"Failed to access hall ticket website for Roll Number {roll_number}.")
+
+def shell():
+    script_path = 'bash convert.sh'
+
+    try:
+        subprocess.run(script_path, shell=True, check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error running the script: {e}")
 
 if __name__ == '__main__':
     app.run(debug=True)

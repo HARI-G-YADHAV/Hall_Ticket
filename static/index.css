@@ -26,6 +26,9 @@ input[type="file"] {
     display: block;
     margin: 5px 0;
 }
+input[type="text"] {
+    width: 500px;
+}
 
 select {
     display: block;

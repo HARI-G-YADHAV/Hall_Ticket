@@ -40,6 +40,8 @@ Install Required Packages
 
 ```bash
   pip3 install -r requirement.txt
+  sudo apt-get update
+  sudo apt install libreoffice
 ```
 
 Start the server in debug mode
